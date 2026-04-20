@@ -4,6 +4,13 @@ from display import display_restaurants
 
 
 def main():
+    """CLI entry point: read a postcode, fetch restaurants, display them.
+
+    The postcode is taken from command-line arguments if provided, otherwise
+    prompted for interactively. It is normalised (whitespace stripped,
+    uppercased) before being sent to the API. Errors from the API or network
+    are caught and reported with a non-zero exit code.
+    """
     if len(sys.argv) > 1:
         postcode = " ".join(sys.argv[1:])
     else:

@@ -10,6 +10,7 @@ console = Console()
 
 
 def _rating_colour(rating: float) -> str:
+    """Return a rich style string for a rating value (green/yellow/red)."""
     if rating >= 4.5:
         return "bold green"
     if rating >= 3.0:
@@ -18,6 +19,7 @@ def _rating_colour(rating: float) -> str:
 
 
 def _build_panel(index: int, r: Restaurant) -> Panel:
+    """Build a single rich Panel displaying one restaurant's four data points."""
     cuisines_str = ", ".join(r.cuisines) if r.cuisines else "N/A"
 
     body = Text()
@@ -39,6 +41,8 @@ def _build_panel(index: int, r: Restaurant) -> Panel:
 
 
 def display_restaurants(restaurants: list[Restaurant]) -> None:
+    """Print each restaurant as a bordered card to the terminal.
+    """
     if not restaurants:
         console.print("[yellow]No restaurants found for this postcode.[/yellow]")
         return

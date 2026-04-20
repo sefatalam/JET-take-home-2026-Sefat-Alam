@@ -3,6 +3,8 @@ from dataclasses import dataclass
 
 @dataclass
 class Restaurant:
+    """Represents a single restaurant with only the fields we care about for display."""
+
     name: str
     cuisines: list[str]
     rating: float
@@ -10,6 +12,11 @@ class Restaurant:
 
     @classmethod
     def from_api_response(cls, data: dict) -> "Restaurant":
+        """Build a Restaurant from a single entry in the API's `restaurants` array.
+
+        Missing fields fall back to sensible defaults ("Unknown", empty list,
+        0.0, empty string) so a malformed entry never crashes the app.
+        """
         name = data.get("name", "Unknown")
 
         cuisines = [c["name"] for c in data.get("cuisines", [])]
