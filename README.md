@@ -4,8 +4,8 @@
 A small command-line application that takes a UK postcode, queries the Just Eat discovery API, and displays the first 10 restaurants with their name, cuisines, rating, and address.
 
 ## Quick start
-Note: Requires Python 3.9 or higher to run. (Developed and tested on Python 3.13.7)
-Dependencies: `requests`, `rich`
+Note: Requires Python 3.9 or higher to run. (Developed and tested on Python 3.13.7) \
+Dependencies: `requests`, `rich` \
 Dev dependencies:` pytest`
 
 ### (Recommended) Create and activate a virtual environment in the working directory
